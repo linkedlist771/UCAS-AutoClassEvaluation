@@ -1,11 +1,14 @@
 // ==UserScript==
 // @name         🚀🚀🚀🚀国科大自动评教
 // @namespace     auto_class_evaluation
-// @version       2.6.0
-// @description  国科大自动评教脚本
+// @version       2.6.1
+// @description  国科大自动评教脚本, 这个脚本可以帮助你一键生成评教内容。
 // @author       LLinkedList771
 // @run-at       document-start
 // @match        https://jwxk.ucas.ac.cn/evaluate*
+// @match        https://xkcts.ucas.ac.cn/evaluate*
+// @match        https://*.ucas.ac.cn/evaluate*
+
 // @license      MIT
 // ==/UserScript==
 
