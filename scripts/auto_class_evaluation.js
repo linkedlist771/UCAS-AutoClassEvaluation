@@ -1,13 +1,16 @@
 // ==UserScript==
 // @name         🚀🚀🚀🚀国科大自动评教
 // @namespace     auto_class_evaluation
-// @version       2.6.1
+// @version       2.6.2
 // @description  国科大自动评教脚本, 这个脚本可以帮助你一键生成评教内容。
 // @author       LLinkedList771
 // @run-at       document-start
 // @match        https://jwxk.ucas.ac.cn/evaluate*
 // @match        https://xkcts.ucas.ac.cn/evaluate*
 // @match        https://*.ucas.ac.cn/evaluate*
+// @homepageURL  https://github.com/linkedlist771/UCAS-AutoClassEvaluation
+// @supportURL   https://github.com/linkedlist771/UCAS-AutoClassEvaluation/issues
+
 
 // @license      MIT
 // ==/UserScript==
@@ -15,14 +18,6 @@
 
 (function() {
     'use strict';
-    function selectAllValue5Inputs() {
-        const inputs = document.querySelectorAll('input[value="5"]');
-        inputs.forEach(input => {
-            input.checked = true;
-        });
-    }
-
-
     
     // ----------------- Styles -----------------
     function addEvaluationStyles() {
@@ -189,13 +184,16 @@
         
         return selectedFeedback;
     }
+
+    function findTeacherFeedbackTextareas() {
+        var textareas = document.getElementsByTagName('textarea');
+        return Array.from(textareas)
+    }
+
     
     function fillTeacherFeedbackTextareas() {
         const selectedFeedback = generateRandomTeacherFeedback();
-        const textareas = [
-            document.getElementById("item_1049"),
-            document.getElementById("item_1050")
-        ];
+        const textareas = findTeacherFeedbackTextareas();
         
         textareas.forEach((textarea, index) => {
             if (textarea) {
