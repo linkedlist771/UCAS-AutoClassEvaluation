@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         🚀🚀🚀🚀国科大自动评教
 // @namespace     auto_class_evaluation
-// @version       2.6.2
+// @version       2.6.3
 // @description  国科大自动评教脚本, 这个脚本可以帮助你一键生成评教内容。
 // @author       LLinkedList771
 // @run-at       document-start
@@ -126,12 +126,21 @@
 
     function fillCourseFeedbackTextareas() {
         const selectedFeedback = generateRandomCourseFeedback();
-        for (let i = 1074; i <= 1078; i++) {
-            const textarea = document.getElementById(`item_${i}`);
+        // for (let i = 1074; i <= 1078; i++) {
+        //     const textarea = document.getElementById(`item_${i}`);
+        //     if (textarea) {
+        //         textarea.value = selectedFeedback[i - 1073];
+        //     }
+        // }
+
+        const textareaList = Array.from(document.getElementsByTagName('textarea'));
+        for (let i = 0; i < textareaList.length; i++) {
+            const textarea = textareaList[i];
             if (textarea) {
-                textarea.value = selectedFeedback[i - 1073];
+                textarea.value = selectedFeedback[i + 1];
             }
         }
+           
     }
 
     function selectRandomCourseQualityRating() {
