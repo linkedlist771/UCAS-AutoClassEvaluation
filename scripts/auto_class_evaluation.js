@@ -132,7 +132,7 @@
         //         textarea.value = selectedFeedback[i - 1073];
         //     }
         // }
-
+{/* <textarea id="item_1119" name="item_1119" rows="5" cols="100" minlength="15" maxlength="200" class="required" aria-required="true"></textarea> */}
         const textareaList = Array.from(document.getElementsByTagName('textarea'));
         for (let i = 0; i < textareaList.length; i++) {
             const textarea = textareaList[i];
@@ -144,15 +144,18 @@
     }
 
     function selectRandomCourseQualityRating() {
-        const radios = Array.from({length: 5}, (_, i) => document.getElementById((1080 + i).toString())).filter(Boolean);
-        const randomRadio = radios[Math.floor(Math.random() * radios.length)];
+
+        // <input class="required radio" type="radio" id="1125" name="radio_1124" value="" aria-required="true">
+        const lastFiveRadios = Array.from(document.querySelectorAll('input[type="radio"]')).slice(-5);
+        const randomRadio = lastFiveRadios[Math.floor(Math.random() * lastFiveRadios.length)];
         if (randomRadio) {
             randomRadio.checked = true;
         }
     }
 
     function selectRandomCourseSelectionReasons() {
-        const checkboxes = Array.from({length: 6}, (_, i) => document.getElementById((1086 + i).toString())).filter(Boolean);
+        const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]'));
+        // const checkboxes = Array.from({length: 6}, (_, i) => document.getElementById((1086 + i).toString())).filter(Boolean);
         const numToSelect = Math.floor(Math.random() * (checkboxes.length + 1));
         checkboxes.sort(() => Math.random() - 0.5);
         for (let i = 0; i < numToSelect; i++) {
